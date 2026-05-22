@@ -1,0 +1,192 @@
+/* --- Variables for Colors --- */
+:root {
+    --bg-color: #faf8f5;
+    --card-bg: #ffffff;
+    --text-color: #2d3748;
+    --nav-bg: #232f3e;
+    --nav-text: #ffffff;
+    --footer-bg: #1d2636;
+}
+
+body.dark-mode {
+    --bg-color: #121824;
+    --card-bg: #1d2636;
+    --text-color: #f7fafc;
+    --nav-bg: #111827;
+    --nav-text: #f7fafc;
+    --footer-bg: #111827;
+}
+
+/* --- Base Custom Styles --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar Tuning */
+.navbar {
+    background-color: var(--nav-bg) !important;
+    padding: 15px 0;
+}
+
+.navbar-brand, .nav-link {
+    color: var(--nav-text) !important;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid #e75449;
+}
+
+/* Custom Coral Red Buttons */
+.btn-coral {
+    background-color: #e75449 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-coral:hover {
+    background-color: #cf4339 !important;
+    color: white !important;
+}
+
+/* Bootstrap Cards Fix for Dark Mode */
+.card {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Contact Form Inputs Fix for Dark Mode */
+body.dark-mode .form-control {
+    background-color: #1d2636;
+    border-color: #4a5568;
+    color: #f7fafc;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #a0aec0;
+}
+
+/* Hero Banner Layout */
+.sh-hero {
+    background: linear-gradient(135deg, #1d2636 0%, #2a374e 100%);
+    border-radius: 0px;
+    color: white;
+    position: relative;
+}
+
+/* Glassmorphism Effect on Hero */
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Feature Badges */
+.feature-box {
+    background: var(--card-bg);
+    border-radius: 16px;
+    transition: transform 0.2s;
+}
+.feature-box:hover {
+    transform: translateY(-5px);
+}
+
+/* Modern Image Cards styling */
+.sh-product-card {
+    background-color: var(--card-bg);
+    border-radius: 16px !important;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sh-product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+}
+
+.sh-img-container {
+    background-color: #f2f4f7;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+body.dark-mode .sh-img-container {
+    background-color: #121824;
+}
+
+.sh-product-card img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background: linear-gradient(90deg, #e75449 0%, #20b2aa 100%);
+    color: white;
+    padding: 60px 0;
+}
+
+.btn-subscribe {
+    background-color: #20b2aa;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 0 6px 6px 0;
+}
+
+.btn-subscribe:hover {
+    background-color: #1a948e;
+    color: white;
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--footer-bg) !important;
+    color: #a0aec0;
+}
+
+footer h5 {
+    color: #e75449;
+    font-weight: 600;
+}
+
+footer a {
+    color: #a0aec0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #e75449;
+}
+
+/* Fixed Theme Toggle Button */
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1050;
+    background-color: #2d3748;
+    color: white;
+    border: 1px solid #4a5568;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+body.dark-mode .theme-toggle-btn {
+    background-color: #ffffff;
+    color: #2d3748;
+}
