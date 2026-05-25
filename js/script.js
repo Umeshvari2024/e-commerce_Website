@@ -196,3 +196,38 @@ document.addEventListener("DOMContentLoaded", () => {
         renderCartPage();
     }
 });
+
+// --- Product Search & Filter ---
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+
+if (searchInput && categoryFilter) {
+
+    function filterProducts() {
+        const searchValue = searchInput.value.toLowerCase();
+        const categoryValue = categoryFilter.value;
+
+        const cards = document.querySelectorAll(".sh-product-card");
+
+        cards.forEach(card => {
+
+            const productName = card.querySelector("h6").textContent.toLowerCase();
+
+            const category = card.querySelector("span.small").textContent.trim();
+
+            const matchesSearch = productName.includes(searchValue);
+
+            const matchesCategory =
+                categoryValue === "all" || category === categoryValue;
+
+            if (matchesSearch && matchesCategory) {
+                card.parentElement.style.display = "block";
+            } else {
+                card.parentElement.style.display = "none";
+            }
+        });
+    }
+
+    searchInput.addEventListener("keyup", filterProducts);
+    categoryFilter.addEventListener("change", filterProducts);
+}
