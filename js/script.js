@@ -231,3 +231,77 @@ if (searchInput && categoryFilter) {
     searchInput.addEventListener("keyup", filterProducts);
     categoryFilter.addEventListener("change", filterProducts);
 }
+
+// ==========================
+// SIGN UP FUNCTION
+// ==========================
+
+// ==========================
+// SIGN UP + SIGN IN
+// ==========================
+
+const signupForm = document.getElementById("signupForm");
+
+if (signupForm) {
+
+    signupForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const name = document.getElementById("signupName").value;
+        const email = document.getElementById("signupEmail").value;
+        const password = document.getElementById("signupPassword").value;
+
+        const user = {
+            name: name,
+            email: email,
+            password: password
+        };
+
+        localStorage.setItem("shophub_user", JSON.stringify(user));
+
+        alert("Sign Up Successful ✅");
+
+        signupForm.reset();
+
+    });
+
+}
+
+
+// ==========================
+// SIGN IN
+// ==========================
+
+const signinForm = document.getElementById("signinForm");
+
+if (signinForm) {
+
+    signinForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const email = document.getElementById("signinEmail").value;
+        const password = document.getElementById("signinPassword").value;
+
+        const savedUser = JSON.parse(localStorage.getItem("shophub_user"));
+
+        if (
+            savedUser &&
+            savedUser.email === email &&
+            savedUser.password === password
+        ) {
+
+            alert("Login Successful 🎉");
+
+            window.location.href = "products.html";
+
+        } else {
+
+            alert("Invalid Email or Password ❌");
+
+        }
+
+    });
+
+}
