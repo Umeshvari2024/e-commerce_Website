@@ -1,4 +1,7 @@
-/* --- Variables for Colors --- */
+/* ===============================
+   ROOT VARIABLES
+================================= */
+
 :root {
     --bg-color: #faf8f5;
     --card-bg: #ffffff;
@@ -6,7 +9,12 @@
     --nav-bg: #232f3e;
     --nav-text: #ffffff;
     --footer-bg: #1d2636;
+    --border-color: #e2e8f0;
 }
+
+/* ===============================
+   DARK MODE VARIABLES
+================================= */
 
 body.dark-mode {
     --bg-color: #121824;
@@ -15,31 +23,51 @@ body.dark-mode {
     --nav-bg: #111827;
     --nav-text: #f7fafc;
     --footer-bg: #111827;
+    --border-color: #374151;
 }
 
-/* --- Base Custom Styles --- */
+/* ===============================
+   BODY
+================================= */
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s ease,
+                color 0.3s ease;
 }
 
-/* Navbar Tuning */
+/* ===============================
+   NAVBAR
+================================= */
+
 .navbar {
     background-color: var(--nav-bg) !important;
     padding: 15px 0;
 }
 
-.navbar-brand, .nav-link {
+.navbar-brand,
+.nav-link {
     color: var(--nav-text) !important;
+}
+
+.nav-link {
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #e75449 !important;
 }
 
 .nav-link.active {
     border-bottom: 2px solid #e75449;
 }
 
-/* Custom Coral Red Buttons */
+/* ===============================
+   BUTTONS
+================================= */
+
 .btn-coral {
     background-color: #e75449 !important;
     color: white !important;
@@ -47,41 +75,41 @@ body {
     padding: 10px 24px;
     border-radius: 6px;
     font-weight: 500;
-    transition: background-color 0.2s;
+    transition: 0.3s;
 }
 
 .btn-coral:hover {
     background-color: #cf4339 !important;
     color: white !important;
+    transform: translateY(-2px);
 }
 
-/* Bootstrap Cards Fix for Dark Mode */
+/* ===============================
+   CARDS
+================================= */
+
 .card {
     background-color: var(--card-bg) !important;
     color: var(--text-color) !important;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s ease,
+                color 0.3s ease;
 }
 
-/* Contact Form Inputs Fix for Dark Mode */
-body.dark-mode .form-control {
-    background-color: #1d2636;
-    border-color: #4a5568;
-    color: #f7fafc;
-}
+/* ===============================
+   HERO SECTION
+================================= */
 
-body.dark-mode .form-control::placeholder {
-    color: #a0aec0;
-}
-
-/* Hero Banner Layout */
 .sh-hero {
     background: linear-gradient(135deg, #1d2636 0%, #2a374e 100%);
-    border-radius: 0px;
     color: white;
     position: relative;
+    padding: 100px 0;
 }
 
-/* Glassmorphism Effect on Hero */
+/* ===============================
+   GLASS CARD
+================================= */
+
 .glass-card {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -89,28 +117,40 @@ body.dark-mode .form-control::placeholder {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Feature Badges */
+/* ===============================
+   FEATURE BOX
+================================= */
+
 .feature-box {
     background: var(--card-bg);
     border-radius: 16px;
-    transition: transform 0.2s;
+    transition: 0.3s;
 }
+
 .feature-box:hover {
     transform: translateY(-5px);
 }
 
-/* Modern Image Cards styling */
+/* ===============================
+   PRODUCT CARD
+================================= */
+
 .sh-product-card {
     background-color: var(--card-bg);
     border-radius: 16px !important;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
 .sh-product-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08) !important;
 }
+
+/* ===============================
+   PRODUCT IMAGE
+================================= */
 
 .sh-img-container {
     background-color: #f2f4f7;
@@ -126,32 +166,69 @@ body.dark-mode .sh-img-container {
 }
 
 .sh-product-card img {
-    max-height: 100%;
     max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-/* Newsletter Section */
+.sh-product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ===============================
+   FORM INPUTS
+================================= */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: none;
+    border-color: #e75449;
+}
+
+/* DARK MODE INPUTS */
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #1d2636;
+    border-color: #4a5568;
+    color: #f7fafc;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #a0aec0;
+}
+
+/* ===============================
+   NEWSLETTER
+================================= */
+
 .newsletter-section {
     background: linear-gradient(90deg, #e75449 0%, #20b2aa 100%);
     color: white;
     padding: 60px 0;
 }
 
-.btn-subscribe {
-    background-color: #20b2aa;
-    color: white;
+.newsletter-section input {
+    border-radius: 6px 0 0 6px;
     border: none;
-    padding: 12px 30px;
+}
+
+.newsletter-section button {
     border-radius: 0 6px 6px 0;
 }
 
-.btn-subscribe:hover {
-    background-color: #1a948e;
-    color: white;
-}
+/* ===============================
+   FOOTER
+================================= */
 
-/* Footer Styling */
 footer {
     background-color: var(--footer-bg) !important;
     color: #a0aec0;
@@ -165,14 +242,30 @@ footer h5 {
 footer a {
     color: #a0aec0;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: 0.3s;
 }
 
 footer a:hover {
     color: #e75449;
 }
 
-/* Fixed Theme Toggle Button */
+/* ===============================
+   CART BADGE
+================================= */
+
+#cartBadge {
+    font-size: 0.65rem;
+    min-width: 18px;
+    min-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===============================
+   THEME BUTTON
+================================= */
+
 .theme-toggle-btn {
     position: fixed;
     bottom: 25px;
@@ -189,4 +282,119 @@ footer a:hover {
 body.dark-mode .theme-toggle-btn {
     background-color: #ffffff;
     color: #2d3748;
+}
+
+/* ===============================
+   CART PAGE
+================================= */
+
+.cart-item {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.cart-summary-box {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+    .sh-hero {
+        text-align: center;
+        padding: 70px 20px;
+    }
+
+    .sh-img-container {
+        height: 250px;
+    }
+
+    .theme-toggle-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 16px;
+    }
+
+    .newsletter-section form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .newsletter-section input,
+    .newsletter-section button {
+        border-radius: 6px !important;
+        width: 100%;
+    }
+}
+/* ===============================
+   LOGIN PAGE
+================================= */
+
+body {
+    background-color: var(--bg-color);
+}
+
+/* Login Card */
+.login-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+/* Input Fields */
+.login-card .form-control {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    transition: 0.3s;
+}
+
+.login-card .form-control:focus {
+    border-color: #e75449;
+    box-shadow: 0 0 0 0.2rem rgba(231, 84, 73, 0.2);
+}
+
+/* Login Button */
+.login-btn {
+    background-color: #e75449;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #cf4339;
+}
+
+/* Dark Mode Login */
+body.dark-mode .login-card {
+    background-color: #1d2636;
+    color: #fff;
+}
+
+body.dark-mode .login-card .form-control {
+    background-color: #121824;
+    border-color: #4a5568;
+    color: #fff;
+}
+
+body.dark-mode .login-card .form-control::placeholder {
+    color: #a0aec0;
 }
